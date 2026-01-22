@@ -1,0 +1,245 @@
+/* ========================================
+   EL JUICIO DE LOS DIOSES - Estilos Custom
+   (Bootstrap como base)
+   ======================================== */
+
+/* === Variables === */
+:root {
+    --color-primary: #ffd700;
+    --color-secondary: #8b5cf6;
+    --color-energia: #fbbf24;
+    --color-fe: #22d3ee;
+    --color-temor: #ef4444;
+    --font-title: 'Cinzel', 'Times New Roman', serif;
+}
+
+/* === Body === */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0a1e 0%, #1a0f2e 50%, #0d0618 100%);
+}
+
+#game-app {
+    min-height: 100vh;
+}
+
+/* === Pantallas === */
+.screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(15, 10, 30, 0.3), rgba(15, 10, 30, 0.7));
+    /* Lighter overlay */
+    z-index: 0;
+}
+
+.screen>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* === Título del juego === */
+.game-title {
+    font-family: var(--font-title);
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff700 0%, #ffffff 50%, #fff700 100%);
+    /* Brighter gold */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+}
+
+.lightning {
+    color: #fff700;
+    animation: pulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* === Cards personalizadas === */
+.game-card {
+    background: rgba(23, 18, 40, 0.85);
+    /* More transparent/lighter background */
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.game-card:hover {
+    border-color: rgba(255, 215, 0, 0.4);
+}
+
+/* === Stats Bars === */
+.stat-bar {
+    height: 8px;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.stat-bar.energia {
+    background: linear-gradient(90deg, #fbbf24, #fde047);
+}
+
+.stat-bar.fe {
+    background: linear-gradient(90deg, #22d3ee, #67e8f9);
+}
+
+.stat-bar.temor {
+    background: linear-gradient(90deg, #ef4444, #f87171);
+}
+
+.stat-item.danger {
+    animation: dangerPulse 1s ease-in-out infinite;
+}
+
+@keyframes dangerPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 15px 3px rgba(239, 68, 68, 0.3);
+    }
+}
+
+/* === Botones personalizados === */
+.btn-golden {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #f59e0b 100%);
+    color: #0f0a1e;
+    font-family: var(--font-title);
+    font-weight: 700;
+    border: none;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-golden:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+    color: #0f0a1e;
+}
+
+.btn-decision {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: #f0e6ff;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.btn-decision:hover {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: var(--color-primary);
+    transform: translateX(8px);
+    color: #fff;
+}
+
+/* === Escena Header === */
+.escena-titulo {
+    font-family: var(--font-title);
+    color: var(--color-primary);
+    letter-spacing: 2px;
+}
+
+/* === Iconos de stats === */
+.stat-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.stat-icon.energia {
+    background: rgba(251, 191, 36, 0.2);
+    color: var(--color-energia);
+}
+
+.stat-icon.fe {
+    background: rgba(34, 211, 238, 0.2);
+    color: var(--color-fe);
+}
+
+.stat-icon.temor {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--color-temor);
+}
+
+/* === Result Screens === */
+.final-justo .result-title {
+    color: var(--color-primary);
+}
+
+.final-tirano .result-title {
+    color: #ef4444;
+}
+
+.final-caida .result-title {
+    color: #a855f7;
+}
+
+.result-icon {
+    font-size: 4rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* === Card entrada animación === */
+.card-animate {
+    animation: cardEnter 0.5s ease;
+}
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
